@@ -18,11 +18,10 @@ class LoginFacebook extends React.Component {
 		// vediamo se esiste uno status attivo
 		window.FB.getLoginStatus(response => {
 			if (response.status === 'connected') {
-				// Logged into your webpage and Facebook.
 				// leggiamo i dati
 				this.facebookLoginHandler(response);
 			} else { // la persona non e loggata nel sito
-				// aviamo la finestra per accedere al facebook dell'utente
+				// apriamo la finestra per accedere al facebook dell'utente
 				// lo scope sono le autorizazioni che richiediamo all'utente nel momento del log in
 				window.FB.login(this.facebookLoginHandler, { scope: 'public_profile, email' });
 			}
